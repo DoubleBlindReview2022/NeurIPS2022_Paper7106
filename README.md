@@ -46,7 +46,8 @@ A: $m_p$ and $m_h$ are number of iterations of the ProxSVRG step /Half-space ste
 
 > This paper works under the assumption that group sparse regularization is important or necessary and only compares to methods that hold this assumption. But, for all the nuanced benefits, how does this optimization algorithm compare in performance to the most commonly used algorithms? This should be added to Section 3.3 as a baseline to emphasize any tradeoff between performance and group sparsity ratio. For example, does the Adam or Nesterov-SGD optimizer converge 10x faster with 10% better performance? It might be very well worth the cost of worse group sparsity. I don't see why you would leave this out.
 
-> Convex Experiment: Showing the raw objective value in Table 1 doesn't tell us anything without knowing the unique global solution; please show the error or relative error ||x-x*||/||x*||. (same goes for Figure 5)
+> Convex Experiment: Showing the raw objective value in Table 1 doesn't tell us anything without knowing the unique global solution; please show the error or relative error ||x-x*||/||x*||. 
+
 
 > The group sparse ratio for kdda is 0%... so 0% of the groups were under the sparsification threshold. Does the inclusion of this dataset add anything? 
 
