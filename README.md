@@ -57,6 +57,8 @@ We would like to thank the reviewers for their comments. We try to address as ma
 
 # Reviewer AAJf
 
+We would like to thank the reviewers for their comments. We try to address as many of them as possible below.
+
 1. One key step in the proposed algorithm (i.e., Algorithm 1) is the Prox-SVRG algorithm [21]. Thus, the novelty of this paper is limited.
 
 > As mentioned in Section 1.3, our contributions focus on exploring group sparsity and pruning parameters, on which Prox-SVRG has no superiority than rest existing methods (see Table 2 and Figure 2 - Group sparsity).
@@ -95,9 +97,16 @@ We would like to thank the reviewers for their comments. We try to address as ma
 
 2. Convex Experiment: Showing the raw objective value in Table 1 doesn't tell us anything without knowing the unique global solution; please show the error or relative error ||x-x*||/||x*||. 
 
+> For the convex problem, the reason why we do not plot the relative error ||x-x*||/||x*|| is that the optimal solution x* is not known at prior. Meanwhile, since the tested problem is not strongly convex x* is not unique. Lastly, since we are solving the minimization problem, a smaller final objective value means the algorithm performs better. That's reason why we report the final objective value.
+    
+> However, we still use W8a dataset as an example to show the relative error for a demonstration purpose. Please click the [link](https://github.com/DoubleBlindReview2022/NeurIPS2022_Paper7106/blob/main/w8a_lambda_0.01.pdf).(This link brings you to an Anonymized github account ).
+>  Note that, the way to derive x* is by running four algorithms for 200 epochs and collecting the four final iterates. Such a process is repeated for for 5 independent run, so a total of 20 iterates are collected. We take the average of these 20 iterates as the x*.  
+>  (We are aware of that the way of generating x* is not optimal.) One can see that the ProxSVRG is not performing well as one might expect. This is indeed due to the fact that the optimal solution is not unique. Such a plot might be misleading. Therefore, we do not include them in the paper.
 
 3. The group sparse ratio for kdda is 0%... so 0% of the groups were under the sparsification threshold. Does the inclusion of this dataset add anything? 
 
+> We thank the reviewer for pointing out this. Indeed, for a given problem, there are two thresholds $\lambda_{\max}$ and $\lambda_{\min}$. Once the $\lambda>\lambda_{\max}$, the solution becomes $0$, i.e., group sparse ratio is 100\%; on the other hand, $\lambda<\lambda_{\min}$, the solution becomes fully dense, i.e., group sparse ratio is 0\%. $\lambda_{\min}$ and $\lambda_{\max}$ need to be determined case by case. In the main paper, we just show results for different datasets under the same $\lambda$ for consistency. And in Table 4, the group sparsity of Kdda is now ~98\%. So to get a smoother transition from a fully dense solution to a fully sparse solution, we need to choose $\lambda\in (1e-3, 1e-2)$.  We will refined the choice of $\lambda$ in the revision.
+
 4. It seems crucial to show plots of the loss curves vs. iteration for each method since you are talking about convergence rates. 
 
-> To be clear, our contribution is not on establishing the convergence rate. But, we thank for the suggestion. We will add these plots in the final revision. For demonstration purpose, we add the plot for W8a. To better show the difference, we plot $F-F^*$ instead of $F$. Agian, the result is based on the average of 5 runs.
+> To be clear, our contribution is not on establishing the convergence rate. But, we thank for the suggestion. We will add these plots in the final revision. For demonstration purpose, we add a plot for [W8a](https://github.com/DoubleBlindReview2022/NeurIPS2022_Paper7106/blob/main/w8a_lambda_0.01_Fval.pdf)(This link brings you to an Anonymized github account ). To better show the difference, we plot $F-F^*$ instead of $F$. Agian, the result is based on the average of 5 runs.
