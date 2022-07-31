@@ -29,7 +29,7 @@ We would like to thank the reviewers for their comments. We try to address as ma
 >  The choices of hyper-parameter and the sensitivity is discussed in Section 3.1. We repeat them here for the reviewer's convenience. For most of the hyper-parameters in experiments, such as learning rate, mini-batch size, etc., we followed the settings in existing literature. Compared with HSPG, our AdaHSPG enjoys benefits that requires much fewer efforts on fine-tuning hyper-parameters via equipping with adaptive strategy. For the algorithm specific hyper-parameter, i.e., $\mu$ in adaptive switching mechanism, we set $\mu=1$ to give equal preference to the Enhanced half space step and the ProxSVRG step. Prior testing showed that our numerical results are rather insensitive to $\mu$ except when $\mu\gg 1$, which would significantly favor ProxSVRG step. 
 
 
-> How the proposed method compared to some recent works and how it compared to simple prune technique？
+5. How the proposed method compared to some recent works and how it compared to simple prune technique？
 
 
 # Reviwer PdWX  
