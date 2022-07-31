@@ -93,7 +93,19 @@ We would like to thank the reviewers for their comments. We try to address as ma
 
 1. This paper works under the assumption that group sparse regularization is important or necessary and only compares to methods that hold this assumption. But, for all the nuanced benefits, how does this optimization algorithm compare in performance to the most commonly used algorithms? This should be added to Section 3.3 as a baseline to emphasize any tradeoff between performance and group sparsity ratio. For example, does the Adam or Nesterov-SGD optimizer converge 10x faster with 10% better performance? It might be very well worth the cost of worse group sparsity. I don't see why you would leave this out.
 
-> 
+> The reason why we do not compare with Adam or Nesterov-SGD optimizer is that they are not designed for solving problems with that with sparsity promoting regualirizers. To address the about the accuracy, we collect some results that use SGD with momentum to optimize different neural networks on different datasets. As one can see from the table, sparsity promoting regularizers can achieve the comparable accuracy compared with the SGD with momentum. Meanwhile, our method AdaHSPG+ can significantly reduce the model size. This brings benefits like faster inference and easy to deploy the model on edge devices.
+
+
+| Model | Dataset | Accuracy |
+| ----------- | ----------- | ----------- |
+**VGG16** | CIFAR10 | 92.64% |
+**ResNet18** | CIFAR10 | 93.02% |
+**MobileNetV2** | CIFAR10 | 94.43% |
+**VGG16** | Fashion-MINST | 93.50 % |
+**ResNet18** | Fashion-MINST| 94.90% |
+**MobileNet** | Fashion-MINST | 95.00% |
+
+> Accuracy baseline for existing results. (CIFAR10: https://github.com/kuangliu/pytorch-cifar; Fashion-MINST: see https://github.com/zalandoresearch/fashion-mnist)
 
 2. Convex Experiment: Showing the raw objective value in Table 1 doesn't tell us anything without knowing the unique global solution; please show the error or relative error ||x-x*||/||x*||. 
 
