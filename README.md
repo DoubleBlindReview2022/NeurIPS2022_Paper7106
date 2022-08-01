@@ -39,8 +39,8 @@ We would like to thank the reviewers for their comments. We try to address as ma
 
 > The simple pruning methods sometimes set all entries below certain threshold, denoted as $\mathcal{T}$, to zero [9, 10]. However, such simple truncation mechanism is empirical, hence may hurt convergence and model performance. To illustrate this, we project the groups of variables onto zeros in the solutions of Prox-SG and Prox-SVRG (which are not effective to generate zeros in the view of optimization) if the magnitudes of the group variables are less than some $\mathcal{T}$, and denote the corresponding solutions as Prox-SG* and Prox-SVRG*. 
 
-> As shown in the above Figure (i), under the $T$ with no accuracy regression, Prox-SG* and Prox-SVRG* equipped with simple pruning still significantly perform worse than AdaHSPG+ and HSPG without simple pruning method on the group sparsity ratio. Under the $\mathcal{T}$ to reach the same group sparsity ratio as AdaHSPG+, the testing accuracy of Prox-SG* and Prox-SVRG* regresses drastically to 37% and 32%
-in Figure (ii) respectively. Remark here that although the regressed accuracy can be recapped via further fine-tuning, it
+> As shown in the [Figure](https://github.com/DoubleBlindReview2022/NeurIPS2022_Paper7106/blob/main/versus_simple_pruning.png) (i), under the $\mathcal{T}$ with no accuracy regression, Prox-SG* and Prox-SVRG* equipped with simple pruning still significantly perform worse than AdaHSPG+ and HSPG without simple pruning method on the group sparsity ratio. Under the $\mathcal{T}$ to reach the same group sparsity ratio as AdaHSPG+, the testing accuracy of Prox-SG* and Prox-SVRG* regresses drastically to 37% and 32%
+in [Figure](https://github.com/DoubleBlindReview2022/NeurIPS2022_Paper7106/blob/main/versus_simple_pruning.png)  (ii) respectively. Remark here that although the regressed accuracy can be recapped via further fine-tuning, it
 requires additional engineering efforts and training cost, which is less convenient than AdaHPSG+. 
     
 > [9] Structured sparse principal component analysis.
@@ -98,7 +98,7 @@ We would like to thank the reviewers for their comments. We try to address as ma
 
 > As stated in the paper, our goal is to get sparser models and establish stronger convergence results. Improving the accuracy is not our major focus. Indeed, our method can produce sparser models with comparable accuracy. This brings additional benefits like fast inference and easy to deploy our models to edge devices.
 
-6. The authors should compare the proposed algorithm with sophisticated algorithms such as Katyusha [R1]. 
+<!-- 6. The authors should compare the proposed algorithm with sophisticated algorithms such as Katyusha [R1].  -->
 
 
 
