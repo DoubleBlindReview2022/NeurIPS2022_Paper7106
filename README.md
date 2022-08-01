@@ -39,13 +39,15 @@ We would like to thank the reviewers for their comments. We try to address as ma
 
 > The simple pruning methods sometimes set all entries below certain threshold, denoted as $\mathcal{T}$, to zero [9, 10]. However, such simple truncation mechanism is empirical, hence may hurt convergence and model performance. To illustrate this, we project the groups of variables onto zeros in the solutions of Prox-SG and Prox-SVRG (which are not effective to generate zeros in the view of optimization) if the magnitudes of the group variables are less than some $\mathcal{T}$, and denote the corresponding solutions as Prox-SG* and Prox-SVRG*. 
 
-> As shown in the [Figure](https://github.com/DoubleBlindReview2022/NeurIPS2022_Paper7106/blob/main/versus_simple_pruning.png) (i), under the $\mathcal{T}$ with no accuracy regression, Prox-SG* and Prox-SVRG* equipped with simple pruning still significantly perform worse than AdaHSPG+ and HSPG without simple pruning method on the group sparsity ratio. Under the $\mathcal{T}$ to reach the same group sparsity ratio as AdaHSPG+, the testing accuracy of Prox-SG* and Prox-SVRG* regresses drastically to 37% and 32%
+> As shown in the [Figure](https://github.com/DoubleBlindReview2022/NeurIPS2022_Paper7106/blob/main/versus_simple_pruning.png) (i), under the   $\mathcal{T}$ with no accuracy regression, Prox-SG* and Prox-SVRG* equipped with simple pruning still significantly perform worse than AdaHSPG+ and HSPG without simple pruning method on the group sparsity ratio. Under the $\mathcal{T}$ to reach the same group sparsity ratio as AdaHSPG+, the testing accuracy of Prox-SG* and Prox-SVRG* regresses drastically to 37% and 32%
 in [Figure](https://github.com/DoubleBlindReview2022/NeurIPS2022_Paper7106/blob/main/versus_simple_pruning.png)  (ii) respectively. Remark here that although the regressed accuracy can be recapped via further fine-tuning, it
 requires additional engineering efforts and training cost, which is less convenient than AdaHPSG+. 
     
 > [9] Structured sparse principal component analysis.
 
 > [10] Combinatorial penalties: Which structures are preserved by convex relaxations?
+
+> * Links bring you to an Anonymized github account, where we host all plots.
 
 
 # Reviwer PdWX  
@@ -129,7 +131,7 @@ We would like to thank the reviewers for their comments. We try to address as ma
 
 > For the convex problem, the reason why we do not plot the relative error ||x-x*||/||x*|| is that the optimal solution x* is not known at prior. Meanwhile, since the tested problem is not strongly convex x* is not unique. Lastly, since we are solving the minimization problem, a smaller final objective value means the algorithm performs better. That's reason why we report the final objective value.
     
-> However, we still use W8a dataset as an example to show the relative error for a demonstration purpose. Please click the [link](https://github.com/DoubleBlindReview2022/NeurIPS2022_Paper7106/blob/main/w8a_lambda_0.01.pdf).(This link brings you to an Anonymized github account ).
+> However, we still use W8a dataset as an example to show the relative error for a demonstration purpose. Please click the [link](https://github.com/DoubleBlindReview2022/NeurIPS2022_Paper7106/blob/main/w8a_lambda_0.01.pdf) to see the plot.
 >  Note that, the way to derive x* is by running four algorithms for 200 epochs and collecting the four final iterates. Such a process is repeated for for 5 independent run, so a total of 20 iterates are collected. We take the average of these 20 iterates as the x*.  
 >  (We are aware of that the way of generating x* is not optimal.) One can see that the ProxSVRG is not performing well as one might expect. This is indeed due to the fact that the optimal solution is not unique. Such a plot might be misleading. Therefore, we do not include them in the paper.
 
@@ -139,4 +141,4 @@ We would like to thank the reviewers for their comments. We try to address as ma
 
 4. It seems crucial to show plots of the loss curves vs. iteration for each method since you are talking about convergence rates. 
 
-> To be clear, our contribution is not on establishing the convergence rate. But, we thank for the suggestion. We will add these plots in the final revision. For demonstration purpose, we add a plot for [W8a](https://github.com/DoubleBlindReview2022/NeurIPS2022_Paper7106/blob/main/w8a_lambda_0.01_Fval.pdf)(This link brings you to an Anonymized github account ). To better show the difference, we plot $F-F^*$ instead of $F$. Agian, the result is based on the average of 5 runs.
+> To be clear, our contribution is not on establishing the convergence rate. But, we thank for the suggestion. We will add these plots in the final revision. For demonstration purpose, we add a plot for [W8a](https://github.com/DoubleBlindReview2022/NeurIPS2022_Paper7106/blob/main/w8a_lambda_0.01_Fval.pdf). To better show the difference, we plot $F-F^*$ instead of $F$. Agian, the result is based on the average of 5 runs.
