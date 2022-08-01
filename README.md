@@ -5,7 +5,7 @@ We would like to thank the reviewers for their comments. We try to address as ma
 
 > The main challenge that prevents us from establishing such a convergence result is the diminishing stepsize used in the EHS step. We conjecture that with additional variance reduction integrated into the EHS step one might be able to establish such a result.Here, we avoid variance reduction technique in the EHS step because the practical performance on  deep learning tasks is significantly better.
 
-2. Theoretical assumptions need to be clarified further and it is not clear whether the NN adopted in practice indeed satisify the assumption, e.g. the Lipschitz assumption.
+2. Theoretical assumptions need to be clarified further and it is not clear whether the NN adopted in practice indeed satisfy the assumption, e.g. the Lipschitz assumption.
 
 >  We kindly point out that when performing the convergence analysis for non-convex non-smooth problem $f(x)+r(x)$, assume $\nabla f$ to be Lipschtiz continuous is standard in the optimization community, for example [1,2,3]. In the deep learning community, the same assumption is also popular, for example [4,5]. It's is known that the ReLu function will break the Lipschtiz continuous gradient assumption. But one can replace ReLu with SiLU[6] to address such a concern.
     
@@ -113,7 +113,7 @@ We would like to thank the reviewers for their comments. We try to address as ma
 
 1. This paper works under the assumption that group sparse regularization is important or necessary and only compares to methods that hold this assumption. But, for all the nuanced benefits, how does this optimization algorithm compare in performance to the most commonly used algorithms? This should be added to Section 3.3 as a baseline to emphasize any tradeoff between performance and group sparsity ratio. For example, does the Adam or Nesterov-SGD optimizer converge 10x faster with 10% better performance? It might be very well worth the cost of worse group sparsity. I don't see why you would leave this out.
 
-> The reason why we do not compare with Adam or Nesterov-SGD optimizer is that they are not designed for solving problems with that with sparsity promoting regualirizers. To address the about the accuracy, we collect some results that use SGD with momentum to optimize different neural networks on different datasets. As one can see from the table, sparsity promoting regularizers can achieve the comparable accuracy compared with the SGD with momentum. Meanwhile, our method AdaHSPG+ can significantly reduce the model size. This brings benefits like faster inference and easy to deploy the model on edge devices.
+> The reason why we do not compare with Adam or Nesterov-SGD optimizer is that they are not designed for solving problems with that with sparsity promoting regularizes. To address the about the accuracy, we collect some results that use SGD with momentum to optimize different neural networks on different datasets. As one can see from the table, sparsity promoting regularizers can achieve the comparable accuracy compared with the SGD with momentum. Meanwhile, our method AdaHSPG+ can significantly reduce the model size. This brings benefits like faster inference and easy to deploy the model on edge devices.
 
 
 | Model | Dataset | Accuracy |
@@ -141,4 +141,4 @@ We would like to thank the reviewers for their comments. We try to address as ma
 
 4. It seems crucial to show plots of the loss curves vs. iteration for each method since you are talking about convergence rates. 
 
-> To be clear, our contribution is not on establishing the convergence rate. But, we thank for the suggestion. We will add these plots in the final revision. For demonstration purpose, we add a plot for [W8a](https://github.com/DoubleBlindReview2022/NeurIPS2022_Paper7106/blob/main/w8a_lambda_0.01_Fval.pdf). To better show the difference, we plot $F-F^*$ instead of $F$. Agian, the result is based on the average of 5 runs.
+> To be clear, our contribution is not on establishing the convergence rate. But, we thank for the suggestion. We will add these plots in the final revision. For demonstration purpose, we add a plot for [W8a](https://github.com/DoubleBlindReview2022/NeurIPS2022_Paper7106/blob/main/w8a_lambda_0.01_Fval.pdf). To better show the difference, we plot $F-F^*$ instead of $F$. Again, the result is based on the average of 5 runs.
