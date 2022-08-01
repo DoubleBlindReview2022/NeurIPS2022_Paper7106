@@ -71,6 +71,8 @@ We would like to thank the reviewers for their comments. We try to address as ma
     
 4. I wonder if the parameter epsilon is adapted in a similar manner in HSPG as in HSPG+, the performance of HSPG would also be improved or not in terms of solution sparsity.
 
+> Yes, if HSPG is equipped with adaptive epsilon strategy, its performance on group sparsity exploration would be improved as well. In fact, we delicately design this strategy in AdaHSPG+ to avoid the time-costly epsilon fine-tuning efforts in HSPG to achieve high group sparse solution via one-time training. Besides the adaptive epsilon mechanism, AdaHSPG+ enjoys adaptive switching mechanism to achieve better practical performance and equips with stronger convergence theory.
+
 # Reviewer AAJf
 
 We would like to thank the reviewers for their comments. We try to address as many of them as possible below.
