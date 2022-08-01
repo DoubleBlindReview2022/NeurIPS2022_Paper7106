@@ -24,12 +24,28 @@ We would like to thank the reviewers for their comments. We try to address as ma
 
 3. The motivation is not clear. As the paper clearly aims at deep learning, it is not clear to me at all why the regularization induced benefit the application. A simple prune can do the same job.
 
+> As shown in literature [7, 8], simple pruning that projects groups of variables based on magnitude are easily causing model performance regression, thereby a costly re-training is typically required after simple pruning to recap the regressed accuracy. In sharp contrast, regularization based sparsity inducing method does not suffer from such significant accuracy regression carried by simple pruning, and can get a model with high sparsity as well as good performance simultaneously. Therefore, the regularization sparsity induction benefits the applications a lot.
+     
+> [7] Learning Pruning-Friendly Networks via Frank-Wolfe: One-Shot, Any-Sparsity, And No Retraining. 
+
+> [8] Only Train Once: A One-Shot Neural Network Training And Pruning Framework.
+
 4. The discussion on experimental evaluation lacks important details. It is very challenging to reproduce the result from this paper. How to tune-up the hyper-parameter and how sensitive it is?
 
 >  The choices of hyper-parameter and the sensitivity is discussed in Section 3.1. We repeat them here for the reviewer's convenience. For most of the hyper-parameters in experiments, such as learning rate, mini-batch size, etc., we followed the settings in existing literature. Compared with HSPG, our AdaHSPG enjoys benefits that requires much fewer efforts on fine-tuning hyper-parameters via equipping with adaptive strategy. For the algorithm specific hyper-parameter, i.e., $\mu$ in adaptive switching mechanism, we set $\mu=1$ to give equal preference to the Enhanced half space step and the ProxSVRG step. Prior testing showed that our numerical results are rather insensitive to $\mu$ except when $\mu\gg 1$, which would significantly favor ProxSVRG step. 
 
 
 5. How the proposed method compared to some recent works and how it compared to simple prune technique？
+
+> The simple pruning methods sometimes set all entries below certain threshold, denoted as $\mathcal{T}$, to zero [9, 10]. However, such simple truncation mechanism is empirical, hence may hurt convergence and model performance. To illustrate this, we project the groups of variables onto zeros in the solutions of Prox-SG and Prox-SVRG (which are not effective to generate zeros in the view of optimization) if the magnitudes of the group variables are less than some $\mathcal{T}$, and denote the corresponding solutions as Prox-SG* and Prox-SVRG*. 
+
+> As shown in the above Figure (i), under the $T$ with no accuracy regression, Prox-SG* and Prox-SVRG* equipped with simple pruning still significantly perform worse than AdaHSPG+ and HSPG without simple pruning method on the group sparsity ratio. Under the $\mathcal{T}$ to reach the same group sparsity ratio as AdaHSPG+, the testing accuracy of Prox-SG* and Prox-SVRG* regresses drastically to 37% and 32%
+in Figure (ii) respectively. Remark here that although the regressed accuracy can be recapped via further fine-tuning, it
+requires additional engineering efforts and training cost, which is less convenient than AdaHPSG+. 
+    
+> [9] Structured sparse principal component analysis.
+
+> [10] Combinatorial penalties: Which structures are preserved by convex relaxations?
 
 
 # Reviwer PdWX  
